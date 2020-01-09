@@ -1,5 +1,4 @@
 package br.com.gft.model;
-import java.util.Scanner;
 
 public class Veiculo {
 	private String Marca, Modelo, Placa, Cor;
@@ -23,7 +22,7 @@ public class Veiculo {
 	public void acelerar() {
 		if(this.isLigado==true) {
 			this.LitrosCombustivel--;
-			this.Velocidade=20;
+			this.Velocidade+=20;
 		}
 	}
 	public void abastecer(int qtdLitros) {
@@ -55,6 +54,7 @@ public class Veiculo {
 	public void desligar() {
 		if(this.isLigado==true) {
 			this.isLigado=false;
+			this.Velocidade=0;
 		}
 	}
 	

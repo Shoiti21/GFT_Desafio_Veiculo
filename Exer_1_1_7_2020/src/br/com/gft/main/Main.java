@@ -17,12 +17,16 @@ public class Main {
 		int preco=2;
 		
 		Scanner sc=new Scanner(System.in);
-		System.out.println("LIGAR/DESLIGAR(resposta boolean):");
-		isligado=sc.nextBoolean();
-		
+		while(isligado==false) {
+			System.out.println("LIGAR/DESLIGAR(resposta boolean):");
+			isligado=sc.nextBoolean();
+		}
 		while(isligado==true && combustivel>0) {
 			boolean contrFrear=false;
 			boolean contrPintar=false;
+			boolean contrAcelerar=false;
+			
+			Veiculo meuveiculo = new Veiculo(marca,modelo,placa,cor,isligado,combustivel,velocidade,preco);
 			
 			System.out.println("Você deseja abastecer quanto?");
 			qtdabastecer=sc.nextInt();
@@ -34,9 +38,12 @@ public class Main {
 				System.out.println("Qual cor?");
 				cor=sc.next();
 			}
+			System.out.println("Acelerar?(resposta boolean)");
+			contrAcelerar=sc.nextBoolean();
 			
-			Veiculo meuveiculo = new Veiculo(marca,modelo,placa,cor,isligado,combustivel,velocidade,preco);
-			meuveiculo.acelerar();
+			if(contrAcelerar==true) {
+				meuveiculo.acelerar();
+			}
 			meuveiculo.abastecer(qtdabastecer);
 			
 			if(contrFrear==true) {
